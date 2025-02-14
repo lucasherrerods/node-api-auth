@@ -9,6 +9,15 @@ const auth = (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: 'Acesso Negado' })
   }
+
+  try {
+    const decoded = jwt.verify(token.replace('Bearer ', ''), JWT_SECRET)//token decodificado
+
+  } catch (error) {
+    return res.status(401).json({ message: 'Token inválido' })
+  }
+
+  next()
 }
 
 export default auth
