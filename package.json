@@ -1,0 +1,15 @@
+{
+  "name": "api-auth",
+  "version": "1.0.0",
+  "description": "criação de api com autenticação jwt token",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "lucasherrerods",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
