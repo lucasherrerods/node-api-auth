@@ -1,15 +1,19 @@
 import express from 'express'
+import bcrypt from 'bcrypt'
 
 const router = express.Router()
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
   try {
     const users = [] //simulando o bando de dados por enquanto
+
+    const salt = await bcrypt.genSalt(10)
+    const hashPassword = await bcrypt.hash(req.body.password, salt)
 
     users.push({
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: hashPassword
     })
 
     res.status(201).json(users)
